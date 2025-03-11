@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert Record</title>
+    <script type="text/javascript">
+        // ฟังก์ชันในการเปลี่ยนรูป avatar เมื่อคลิกรูป
+        function changeAvatar(imgSrc, avatarNumber) {
+            // แสดงใน console เพื่อดูค่าของ src
+            console.log("เปลี่ยนรูปเป็น: ", imgSrc);
+
+            // เปลี่ยนรูปที่แสดงในฟอร์ม
+            var picElement = document.getElementById('picImg');
+            picElement.src = imgSrc;
+
+            // เปลี่ยนค่าใน hidden input
+            document.getElementById('hid').value = imgSrc;
+        }
+    </script>
+</head>
+
+<body>
+    <table align="center">
+        <tr>
+            <td><img src="Image_avatar/avatar1.jpg" width="45" onclick="changeAvatar('Image_avatar/avatar1.jpg', 1)"></td>
+            <td><img src="Image_avatar/avatar2.jpg" width="45" onclick="changeAvatar('Image_avatar/avatar2.jpg', 2)"></td>
+            <td><img src="Image_avatar/avatar3.jpg" width="45" onclick="changeAvatar('Image_avatar/avatar3.jpg', 3)"></td>
+            <td><img src="Image_avatar/avatar4.jpg" width="45" onclick="changeAvatar('Image_avatar/avatar4.jpg', 4)"></td>
+            <td><img src="Image_avatar/avatar5.jpg" width="45" onclick="changeAvatar('Image_avatar/avatar5.jpg', 5)"></td>
+            <td><img src="Image_avatar/avatar6.jpg" width="45" onclick="changeAvatar('Image_avatar/avatar6.jpg', 6)"></td>
+        </tr>
+    </table>
+
+    <br><br>
+
+    <table align="center">
+        <form action="insert.php" method="post" autocomplete="on" enctype="multipart/form-data">
+            <tr>
+                <td><img id="picImg" src="Image_avatar/avatar1.jpg" width="100"></td>
+                <td><input type="hidden" id="hid" name="avatar" value="Image_avatar/avatar1.jpg"></td>
+            </tr>
+
+            <tr>
+                <td>Firstname:</td>
+                <td><input type="text" name="firstname" maxlength="10" size="20"></td>
+            </tr>
+            <tr>
+                <td>Lastname:</td>
+                <td><input type="text" name="lastname" maxlength="10" size="20"></td>
+            </tr>
+            <tr>
+                <td>Age:</td>
+                <td><input type="number" name="age" min="1" max="100"></td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td><select name="gender">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><br><input type="submit" name="Save" value="Save">
+                    <input type="reset" name="Cancel" value="Cancel"></td>
+            </tr>
+        </form>
+    </table>
+
+    <div id="selectedAvatar"></div>
+</body>
+
+</html>

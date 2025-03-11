@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="utf-8" />
+    <title>changeImg</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+        /* กำหนดความกว้างของตารางและจัดให้อยู่ตรงกลาง */
+        
+        table {
+            width: 600px;
+            margin: auto;
+            border-collapse: separate;
+        }
+        
+        td {
+            padding: 10px;
+        }
+        /* กำหนดให้คอลัมป์ที่ 1 จัดกึ่งกลางแนวตั้ง */
+        
+        #leftMenuCell {
+            vertical-align: middle;
+        }
+        /* ส่วนเมนูเลือกรูปในคอลัมป์แรก */
+        
+        #leftMenu {
+            width: 150px;
+            text-align: center;
+        }
+        
+        #leftMenu img {
+            display: block;
+            width: 75px;
+            height: 75px;
+            cursor: pointer;
+            margin: 10px auto;
+            border: 2px solid transparent;
+        }
+        
+        #leftMenu img:hover {
+            border-color: #666;
+        }
+        /* ส่วนคอลัมป์ที่ 2 สำหรับ Photo label และกริด */
+        
+        #rightPanel {
+            text-align: center;
+        }
+        
+        #photoLabel {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        #gridContainer {
+            display: grid;
+            grid-template-columns: repeat(4, 80px);
+            grid-gap: 5px;
+            justify-content: center;
+        }
+        
+        .grid-item {
+            width: 80px;
+            height: 80px;
+            cursor: pointer;
+            object-fit: cover;
+        }
+        
+        .grid-item:hover {
+            border-color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <table border="1">
+        <tr>
+            <!-- คอลัมป์ที่ 1: เมนูเลือกรูป โดยกำหนด id ให้ td เพื่อปรับ vertical-align -->
+            <td id="leftMenuCell">
+                <div id="leftMenu">
+                    <img id="imgChristmasTree" src="Image_Lab4-1/ChristmasTree.png" alt="ChristmasTree" onclick="selectImage('ChristmasTree','Image_Lab4-1/christmastree.png')" />
+                    <img id="imgApple" src="Image_Lab4-1/apple.png" alt="Apple" onclick="selectImage('Apple','Image_Lab4-1/apple.png')" />
+                    <img id="imgNoodle" src="Image_Lab4-1/noodle.png" alt="Noodle" onclick="selectImage('Noodle','Image_Lab4-1/noodle.png')" />
+                    <img id="imgHamBurgur" src="Image_Lab4-1/HamBurgur.png" alt="HamBurgur" onclick="selectImage('HamBurgur','Image_Lab4-1/HamBurgur.png')" />
+                    <img id="imgBg" src="Image_Lab4-1/bg.png" alt="bg" onclick="selectImage('bg','Image_Lab4-1/bg.png')" />
+                </div>
+            </td>
+
+            <!-- คอลัมป์ที่ 2: แสดง Photo label และกริด -->
+            <td id="rightPanel">
+                <h2>Photo</h2>
+                <div id="photoLabel"></div>
+                <div id="gridContainer">
+                    <!-- สร้าง 16 ช่องในกริด -->
+                    <img class="grid-item" src="Image_Lab4-1/bg.png" alt="slot" onclick="changeSlot(this)" />
+                    <img class="grid-item" src="Image_Lab4-1/bg.png" alt="slot" onclick="changeSlot(this)" />
+                    <img class="grid-item" src="Image_Lab4-1/bg.png" alt="slot" onclick="changeSlot(this)" />
+                    <img class="grid-item" src="Image_Lab4-1/bg.png" alt="slot" onclick="changeSlot(this)" />
+
+                    <img class="grid-item" src="Image_Lab4-1/bg.png" alt="slot" onclick="changeSlot(this)" />
+                    <img class="grid-item" src="Image_Lab4-1/bg.png" alt="slot" onclick="changeSlot(this)" />
+                    <img class="grid-item" src="Image_Lab4-1/bg.png" alt="slot" onclick="changeSlot(this)" />
+                    <img class="grid-item" src="Image_Lab4-1/bg.png" alt="slot" onclick="changeSlot(this)" />
+
+                    <img class="grid-item" src="Image_Lab4-1/bg.png" alt="slot" onclick="changeSlot(this)" />
+                    <img class="grid-item" src="Image_Lab4-1/bg.png" alt="slot" onclick="changeSlot(this)" />
+                    <img class="grid-item" src="Image_Lab4-1/bg.png" alt="slot" onclick="changeSlot(this)" />
+                    <img class="grid-item" src="Image_Lab4-1/bg.png" alt="slot" onclick="changeSlot(this)" />
+
+                    <img class="grid-item" src="Image_Lab4-1/bg.png" alt="slot" onclick="changeSlot(this)" />
+                    <img class="grid-item" src="Image_Lab4-1/bg.png" alt="slot" onclick="changeSlot(this)" />
+                    <img class="grid-item" src="Image_Lab4-1/bg.png" alt="slot" onclick="changeSlot(this)" />
+                    <img class="grid-item" src="Image_Lab4-1/bg.png" alt="slot" onclick="changeSlot(this)" />
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        // เก็บค่ารูปปัจจุบันที่ถูกเลือก
+        let currentName = "";
+        let currentSrc = "";
+
+        // ฟังก์ชันเมื่อคลิกรูปในเมนูซ้าย
+        function selectImage(name, src) {
+            currentName = name;
+            currentSrc = src;
+            document.getElementById("photoLabel").textContent = name;
+        }
+
+        // ฟังก์ชันเมื่อคลิกช่องในกริด
+        function changeSlot(slot) {
+            if (currentSrc !== "") {
+                slot.src = currentSrc;
+            }
+        }
+    </script>
+</body>
+
+</html>
