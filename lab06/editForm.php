@@ -6,8 +6,6 @@
      <script src="showData.js"></script>
      <script type="text/javascript">
           $(document).ready(function() {
-               var clickCount3 = 0; // จำนวนคลิกสำหรับรูปที่ 3
-               var clickCount4 = 0; // จำนวนคลิกสำหรับรูปที่ 4
 
                // คำสั่งที่ 2.1: คลิก 1 ครั้ง รูปที่ 1 ให้เปลี่ยนพื้นหลังเป็นสีเขียว
                $("#img1").click(function() {
