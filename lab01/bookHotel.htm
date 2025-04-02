@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Reservation</title>
+</head>
+<body>
+
+    <h2>Book a Hotel</h2>
+    <form action="#" method="post">
+        <label for="hotel">Reseave a Hotel:</label><br>
+        <input type="text" id="hotel" name="hotel" list="hotel-list" placeholder="Search for hotel..." required>
+        <datalist id="hotel-list">
+            <option value="โคราชคันทรีคลับ">
+            <option value="โคราชรีสอร์ท">
+            <option value="สุรสัมมนาคาร">
+            <option value="สุรนารีวิลล์">
+            <option value="สีมาธานี">
+        </datalist>
+        <br>
+
+        <label for="checkin">Check-in:</label>
+        <input type="date" id="checkin" name="checkin" required>
+
+        <label for="nights">Nights:</label>
+        <input type="number" id="nights" name="nights" min="1" max="30" required oninput="calculateTotal()">
+        <br>
+
+        <label for="rooms">Rooms:</label>
+        <input type="number" id="rooms" name="rooms" min="1" max="9" required oninput="calculateTotal()">
+
+        <label for="adults">Adults per room:</label>
+        <input type="number" id="adults" name="adults" min="1" max="2" required oninput="calculateTotal()">
+
+        <label for="children">Children per room:</label>
+        <input type="number" id="children" name="children" min="0" max="2" required oninput="calculateTotal()">
+        <br>
+
+        <label for="price">Price per room:</label>
+        <input type="text" id="price" name="price" value="1500" readonly>
+        <br>
+
+        <label for="total">Total Price:</label>
+        <input type="text" id="total" name="total" readonly>
+        <br>
+
+        <button type="submit">Reserve</button>
+    </form>
+
+    <script>
+        function calculateTotal() {
+            var nights = document.getElementById("nights").value;
+            var rooms = document.getElementById("rooms").value;
+            var children = document.getElementById("children").value;
+            var pricePerRoom = 1500;
+            
+            // Adding extra price for children (300 per child per room)
+            if (children > 0) {
+                pricePerRoom += 300 * children;
+            }
+
+            var totalPrice = pricePerRoom * rooms * nights;
+            document.getElementById("price").value = pricePerRoom;
+            document.getElementById("total").value = totalPrice;
+        }
+    </script>
+
+</body>
+</html>

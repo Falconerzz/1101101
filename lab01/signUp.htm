@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+</head>
+<body>
+
+    <h2>Sign Up</h2>
+    <form action="#" method="post">
+        <label for="firstname">First Name:</label>
+        <input type="text" id="firstname" name="firstname" maxlength="10" size="10" placeholder="First Name" required>
+        <br>
+
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" name="lastname" maxlength="10" size="10" placeholder="Last Name" required>
+        <br>
+
+        <label for="email">Your E-mail:</label>
+        <input type="email" id="email" name="email" size="26" placeholder="Your E-mail" required>
+        <br>
+
+        <label for="pwd">Your Password:</label>
+        <input type="password" id="pwd" name="pwd" maxlength="8" size="26" placeholder="Your Password" pattern="[A-Za-z0-9]{8}" required>
+        <br>
+
+        <label for="mobile">Mobile : (xxx)xxx-xxxx:</label>
+        <input type="text" name="mobile" maxlength="13" size="26" placeholder="Mobile: (xxx)xxx-xxxx" pattern="^\([0-9]{3}\)[0-9]{3}-[0-9]{4}$" required><br>
+        <br>
+
+        <label for="birthday">Birthday:</label>
+        <input type="date" id="birthday" name="birthday" max="1995-12-31" min="1991-01-01" required>
+        <br>
+
+        <label for="age">Age:</label>
+        <label>1</label>
+        <input type="range" id="age" name="age" min="1" max="100" value="1">
+        <label>100</label>
+        <br>
+
+        <label>Gender:</label>
+        <input type="radio" name="sex" value="male" required>Male
+        <input type="radio" name="sex" value="female" required>Female
+        <br>
+
+        <button type="submit">Sign Up</button>
+    </form>
+
+</body>
+</html>
